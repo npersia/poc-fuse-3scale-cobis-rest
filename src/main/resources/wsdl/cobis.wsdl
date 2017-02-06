@@ -1,0 +1,517 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://cobis.poc.hipotecario.semperti.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="cobisService" targetNamespace="http://cobis.poc.hipotecario.semperti.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://cobis.poc.hipotecario.semperti.com/" elementFormDefault="unqualified" targetNamespace="http://cobis.poc.hipotecario.semperti.com/" version="1.0">
+
+  <xs:element name="obtenerPersona" type="tns:obtenerPersona"/>
+
+  <xs:element name="obtenerPersonaResponse" type="tns:obtenerPersonaResponse"/>
+
+  <xs:element name="obtenerPersonas" type="tns:obtenerPersonas"/>
+
+  <xs:element name="obtenerPersonasResponse" type="tns:obtenerPersonasResponse"/>
+
+  <xs:element name="obtenerPrestamoPatrimonial" type="tns:obtenerPrestamoPatrimonial"/>
+
+  <xs:element name="obtenerPrestamoPatrimonialResponse" type="tns:obtenerPrestamoPatrimonialResponse"/>
+
+  <xs:element name="obtenerPrestamosPatrimoniales" type="tns:obtenerPrestamosPatrimoniales"/>
+
+  <xs:element name="obtenerPrestamosPatrimonialesDePersona" type="tns:obtenerPrestamosPatrimonialesDePersona"/>
+
+  <xs:element name="obtenerPrestamosPatrimonialesDePersonaResponse" type="tns:obtenerPrestamosPatrimonialesDePersonaResponse"/>
+
+  <xs:element name="obtenerPrestamosPatrimonialesResponse" type="tns:obtenerPrestamosPatrimonialesResponse"/>
+
+  <xs:element name="obtenerTarjetaCreditoPatrimonial" type="tns:obtenerTarjetaCreditoPatrimonial"/>
+
+  <xs:element name="obtenerTarjetaCreditoPatrimonialResponse" type="tns:obtenerTarjetaCreditoPatrimonialResponse"/>
+
+  <xs:element name="obtenerTarjetasCreditoPatrimoniales" type="tns:obtenerTarjetasCreditoPatrimoniales"/>
+
+  <xs:element name="obtenerTarjetasCreditoPatrimonialesResponse" type="tns:obtenerTarjetasCreditoPatrimonialesResponse"/>
+
+  <xs:element name="obtenerTarjetasDeCreditoPatrimonialesDePersona" type="tns:obtenerTarjetasDeCreditoPatrimonialesDePersona"/>
+
+  <xs:element name="obtenerTarjetasDeCreditoPatrimonialesDePersonaResponse" type="tns:obtenerTarjetasDeCreditoPatrimonialesDePersonaResponse"/>
+
+  <xs:element name="obtenerTelefono" type="tns:obtenerTelefono"/>
+
+  <xs:element name="obtenerTelefonoResponse" type="tns:obtenerTelefonoResponse"/>
+
+  <xs:element name="obtenerTelefonos" type="tns:obtenerTelefonos"/>
+
+  <xs:element name="obtenerTelefonosDePersona" type="tns:obtenerTelefonosDePersona"/>
+
+  <xs:element name="obtenerTelefonosDePersonaResponse" type="tns:obtenerTelefonosDePersonaResponse"/>
+
+  <xs:element name="obtenerTelefonosResponse" type="tns:obtenerTelefonosResponse"/>
+
+  <xs:complexType name="obtenerPersona">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerPersonaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:persona"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="persona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apellidos" type="xs:string"/>
+      <xs:element name="esPersonaFisica" type="xs:boolean"/>
+      <xs:element name="esPersonaJuridica" type="xs:boolean"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="idNumeroDocumento" type="xs:int"/>
+      <xs:element name="idSexo" type="xs:int"/>
+      <xs:element minOccurs="0" name="nombres" type="xs:string"/>
+      <xs:element name="numeroDocumento" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="prestamosPatrimoniales" nillable="true" type="tns:prestamoPatrimonial"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="tarjetasCreditoPatrimoniales" nillable="true" type="tns:tarjetaCreditoPatrimonial"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="prestamoPatrimonial">
+    <xs:sequence>
+      <xs:element name="deuda" type="xs:float"/>
+      <xs:element name="esACancelar" type="xs:boolean"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="idEntidad" type="xs:int"/>
+      <xs:element name="idPersona" type="xs:int"/>
+      <xs:element name="idTipoPrestamo" type="xs:int"/>
+      <xs:element name="plazoRestante" type="xs:int"/>
+      <xs:element name="valorCuota" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tarjetaCreditoPatrimonial">
+    <xs:sequence>
+      <xs:element name="deuda" type="xs:float"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="idEntidad" type="xs:int"/>
+      <xs:element name="idMarcaTCPatrimonial" type="xs:int"/>
+      <xs:element name="idPersona" type="xs:int"/>
+      <xs:element name="limiteCompra" type="xs:float"/>
+      <xs:element name="pagoPromedio" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerTarjetasCreditoPatrimoniales">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerTarjetasCreditoPatrimonialesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tarjetasCreditoPatrimoniales"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tarjetasCreditoPatrimoniales">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="tarjetasCreditoPatrimoniales" nillable="true" type="tns:tarjetaCreditoPatrimonial"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerTelefonosDePersona">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerTelefonosDePersonaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:telefonos"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="telefonos">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="telefonos" nillable="true" type="tns:telefono"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="telefono">
+    <xs:sequence>
+      <xs:element name="caracteristica" type="xs:int"/>
+      <xs:element name="codigoArea" type="xs:int"/>
+      <xs:element name="codigoPais" type="xs:int"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="idPersona" type="xs:int"/>
+      <xs:element name="idTipoTelefono" type="xs:int"/>
+      <xs:element name="interno" type="xs:int"/>
+      <xs:element name="numero" type="xs:int"/>
+      <xs:element minOccurs="0" name="numeroNormalizado" type="xs:string"/>
+      <xs:element name="prefijo" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerPrestamoPatrimonial">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerPrestamoPatrimonialResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:prestamoPatrimonial"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerTarjetaCreditoPatrimonial">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerTarjetaCreditoPatrimonialResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tarjetaCreditoPatrimonial"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerPersonas">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerPersonasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:personas"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="personas">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="personas" nillable="true" type="tns:persona"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerTelefono">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerTelefonoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:telefono"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerTelefonos">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerTelefonosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:telefonos"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerPrestamosPatrimonialesDePersona">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerPrestamosPatrimonialesDePersonaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:prestamosPatrimoniales"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="prestamosPatrimoniales">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="prestamosPatrimoniales" nillable="true" type="tns:prestamoPatrimonial"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerPrestamosPatrimoniales">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerPrestamosPatrimonialesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:prestamosPatrimoniales"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerTarjetasDeCreditoPatrimonialesDePersona">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerTarjetasDeCreditoPatrimonialesDePersonaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tarjetasCreditoPatrimoniales"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="obtenerPersona">
+    <wsdl:part element="tns:obtenerPersona" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTarjetasCreditoPatrimoniales">
+    <wsdl:part element="tns:obtenerTarjetasCreditoPatrimoniales" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTelefonoResponse">
+    <wsdl:part element="tns:obtenerTelefonoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTelefonosResponse">
+    <wsdl:part element="tns:obtenerTelefonosResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerPersonaResponse">
+    <wsdl:part element="tns:obtenerPersonaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTarjetasCreditoPatrimonialesResponse">
+    <wsdl:part element="tns:obtenerTarjetasCreditoPatrimonialesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerPrestamoPatrimonial">
+    <wsdl:part element="tns:obtenerPrestamoPatrimonial" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerPrestamosPatrimonialesResponse">
+    <wsdl:part element="tns:obtenerPrestamosPatrimonialesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerPrestamosPatrimonialesDePersonaResponse">
+    <wsdl:part element="tns:obtenerPrestamosPatrimonialesDePersonaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTelefono">
+    <wsdl:part element="tns:obtenerTelefono" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerPrestamosPatrimoniales">
+    <wsdl:part element="tns:obtenerPrestamosPatrimoniales" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTarjetasDeCreditoPatrimonialesDePersona">
+    <wsdl:part element="tns:obtenerTarjetasDeCreditoPatrimonialesDePersona" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerPrestamoPatrimonialResponse">
+    <wsdl:part element="tns:obtenerPrestamoPatrimonialResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTelefonosDePersona">
+    <wsdl:part element="tns:obtenerTelefonosDePersona" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTarjetaCreditoPatrimonialResponse">
+    <wsdl:part element="tns:obtenerTarjetaCreditoPatrimonialResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTarjetaCreditoPatrimonial">
+    <wsdl:part element="tns:obtenerTarjetaCreditoPatrimonial" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerPersonas">
+    <wsdl:part element="tns:obtenerPersonas" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerPersonasResponse">
+    <wsdl:part element="tns:obtenerPersonasResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTarjetasDeCreditoPatrimonialesDePersonaResponse">
+    <wsdl:part element="tns:obtenerTarjetasDeCreditoPatrimonialesDePersonaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTelefonosDePersonaResponse">
+    <wsdl:part element="tns:obtenerTelefonosDePersonaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTelefonos">
+    <wsdl:part element="tns:obtenerTelefonos" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerPrestamosPatrimonialesDePersona">
+    <wsdl:part element="tns:obtenerPrestamosPatrimonialesDePersona" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CobisService">
+    <wsdl:operation name="obtenerPersona">
+      <wsdl:input message="tns:obtenerPersona" name="obtenerPersona">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerPersonaResponse" name="obtenerPersonaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTarjetasCreditoPatrimoniales">
+      <wsdl:input message="tns:obtenerTarjetasCreditoPatrimoniales" name="obtenerTarjetasCreditoPatrimoniales">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerTarjetasCreditoPatrimonialesResponse" name="obtenerTarjetasCreditoPatrimonialesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTelefonosDePersona">
+      <wsdl:input message="tns:obtenerTelefonosDePersona" name="obtenerTelefonosDePersona">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerTelefonosDePersonaResponse" name="obtenerTelefonosDePersonaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPrestamoPatrimonial">
+      <wsdl:input message="tns:obtenerPrestamoPatrimonial" name="obtenerPrestamoPatrimonial">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerPrestamoPatrimonialResponse" name="obtenerPrestamoPatrimonialResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTarjetaCreditoPatrimonial">
+      <wsdl:input message="tns:obtenerTarjetaCreditoPatrimonial" name="obtenerTarjetaCreditoPatrimonial">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerTarjetaCreditoPatrimonialResponse" name="obtenerTarjetaCreditoPatrimonialResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPersonas">
+      <wsdl:input message="tns:obtenerPersonas" name="obtenerPersonas">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerPersonasResponse" name="obtenerPersonasResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTelefono">
+      <wsdl:input message="tns:obtenerTelefono" name="obtenerTelefono">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerTelefonoResponse" name="obtenerTelefonoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTelefonos">
+      <wsdl:input message="tns:obtenerTelefonos" name="obtenerTelefonos">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerTelefonosResponse" name="obtenerTelefonosResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPrestamosPatrimonialesDePersona">
+      <wsdl:input message="tns:obtenerPrestamosPatrimonialesDePersona" name="obtenerPrestamosPatrimonialesDePersona">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerPrestamosPatrimonialesDePersonaResponse" name="obtenerPrestamosPatrimonialesDePersonaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPrestamosPatrimoniales">
+      <wsdl:input message="tns:obtenerPrestamosPatrimoniales" name="obtenerPrestamosPatrimoniales">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerPrestamosPatrimonialesResponse" name="obtenerPrestamosPatrimonialesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTarjetasDeCreditoPatrimonialesDePersona">
+      <wsdl:input message="tns:obtenerTarjetasDeCreditoPatrimonialesDePersona" name="obtenerTarjetasDeCreditoPatrimonialesDePersona">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerTarjetasDeCreditoPatrimonialesDePersonaResponse" name="obtenerTarjetasDeCreditoPatrimonialesDePersonaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="cobisServiceSoapBinding" type="tns:CobisService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="obtenerPersona">
+      <soap:operation soapAction="obtenerPersona" style="document"/>
+      <wsdl:input name="obtenerPersona">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerPersonaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTarjetasCreditoPatrimoniales">
+      <soap:operation soapAction="obtenerTarjetasCreditoPatrimoniales" style="document"/>
+      <wsdl:input name="obtenerTarjetasCreditoPatrimoniales">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerTarjetasCreditoPatrimonialesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTelefonosDePersona">
+      <soap:operation soapAction="obtenerTelefonosDePersona" style="document"/>
+      <wsdl:input name="obtenerTelefonosDePersona">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerTelefonosDePersonaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPrestamoPatrimonial">
+      <soap:operation soapAction="obtenerPrestamoPatrimonial" style="document"/>
+      <wsdl:input name="obtenerPrestamoPatrimonial">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerPrestamoPatrimonialResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTarjetaCreditoPatrimonial">
+      <soap:operation soapAction="obtenerTarjetaCreditoPatrimonial" style="document"/>
+      <wsdl:input name="obtenerTarjetaCreditoPatrimonial">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerTarjetaCreditoPatrimonialResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPersonas">
+      <soap:operation soapAction="obtenerPersonas" style="document"/>
+      <wsdl:input name="obtenerPersonas">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerPersonasResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTelefono">
+      <soap:operation soapAction="obtenerTelefono" style="document"/>
+      <wsdl:input name="obtenerTelefono">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerTelefonoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTelefonos">
+      <soap:operation soapAction="obtenerTelefonos" style="document"/>
+      <wsdl:input name="obtenerTelefonos">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerTelefonosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPrestamosPatrimonialesDePersona">
+      <soap:operation soapAction="obtenerPrestamosPatrimonialesDePersona" style="document"/>
+      <wsdl:input name="obtenerPrestamosPatrimonialesDePersona">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerPrestamosPatrimonialesDePersonaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPrestamosPatrimoniales">
+      <soap:operation soapAction="obtenerPrestamosPatrimoniales" style="document"/>
+      <wsdl:input name="obtenerPrestamosPatrimoniales">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerPrestamosPatrimonialesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTarjetasDeCreditoPatrimonialesDePersona">
+      <soap:operation soapAction="obtenerTarjetasDeCreditoPatrimonialesDePersona" style="document"/>
+      <wsdl:input name="obtenerTarjetasDeCreditoPatrimonialesDePersona">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerTarjetasDeCreditoPatrimonialesDePersonaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="cobisService">
+    <wsdl:port binding="tns:cobisServiceSoapBinding" name="CobisServicePort">
+      <soap:address location="http://172.17.0.4:3333/cobis"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
